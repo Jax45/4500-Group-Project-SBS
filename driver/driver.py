@@ -1,15 +1,25 @@
 # needed for filtering
 import string;
+import re;
 
+# opening test codebook file
 with open('testCodebook.txt') as f:
     cbLines = f.readlines();
 cbLines = [x.strip() for x in cbLines];
 f.close();
 
+# searchables from codebook
+# word, phrase, and phrase with spaces.
 codeWord        = cbLines[0];
 codePhrase      = cbLines[1];
 codeTemp        = cbLines[2].split();
-codeSpacePhrase = (int(codeTemp[1]), [codeTemp[0], codeTemp[2]]);
+
+temp = re.findall(r'\d+', codeTemp[1])
+res = list(map(int, temp))
+
+# set up as list of lists: first list is range of distance between words,
+# second list is the words themselves
+codeSpacePhrase = [res, [codeTemp[0], codeTemp[2]]];
 
 #initializing list to hold text
 wordArray = [];
