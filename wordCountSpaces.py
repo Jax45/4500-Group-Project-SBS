@@ -34,6 +34,7 @@ def wordCountSpaces(cswString, textList):
             if foundFlag == True and i-foundPos<=phraseDist:
                 print(f"{eWord} found at pos {i}");
                 gapPhraseCount += 1;
+                foundFlag = False;
 
     return gapPhraseCount;
 

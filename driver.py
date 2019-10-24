@@ -2,6 +2,8 @@
 import string;
 import re;
 
+from wordCountSpaces import wordCountSpaces
+
 # opening test codebook file
 with open('testCodebook.txt') as f:
     cbLines = f.readlines();
@@ -26,7 +28,7 @@ print(codeSpacePhrase);
 wordArray = [];
 
 # open file, and set wordArray as list of words in file without newlines
-with open('input.txt') as f:
+with open('testText.txt') as f:
     wordArray = [word for line in f for word in line.split()]
 f.close();
 
@@ -38,3 +40,4 @@ for i in range(len(wordArray)):
 
 print(wordArray);
 
+print(wordCountSpaces(cbLines[2], wordArray));
